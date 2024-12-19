@@ -10,7 +10,7 @@ const DeleteTask = () => {
         if (taskId) {
             try {
 
-                const response = await axios.delete(`${import.meta.env.VITE_APP_BACKEND_PORT}/delete/${taskId}`);
+                const response = await axios.delete(`${import.meta.env.VITE_BACKEND_PORT}/delete/${taskId}`);
 
                 // Check for success message
                 setStatusMessage(response.data.message);

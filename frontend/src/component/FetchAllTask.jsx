@@ -7,7 +7,7 @@ const FetchAllTask = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_PORT}/fetchAll`); // Replace with your API endpoint
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_PORT}/fetchAll`); // Replace with your API endpoint
         setTasks(response.data.data);
         // console.log(response.data.data)
       } catch (error) {

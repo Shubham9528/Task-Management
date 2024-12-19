@@ -10,7 +10,7 @@ const FetchById = () => {
         if (parseInt(id) > 0) {
             try {
 
-                const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_PORT}/fetchById/${id}`);
+                const response = await axios.get(`${import.meta.env.VITE_BACKEND_PORT}/fetchById/${id}`);
                 setFetchedData(response.data);
             } catch (error) {
                 console.error("Error fetching task:", error);

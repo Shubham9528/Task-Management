@@ -20,7 +20,7 @@ const RegisterPage = () => {
 
     try {
       // Send registration data to the backend
-      const response = await axios.post(`${import.meta.env.VITE_APP_BACKEND_PORT}/register`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_PORT}/register`, {
         username,
         password,
       });

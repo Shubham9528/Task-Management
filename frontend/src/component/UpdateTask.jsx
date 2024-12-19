@@ -20,7 +20,7 @@ const UpdateTask = () => {
         }
     
         try {
-            const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_PORT}/fetchById/${taskId}`);
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_PORT}/fetchById/${taskId}`);
             const task = response.data;
     
             setName(task.name);
@@ -41,7 +41,7 @@ const UpdateTask = () => {
             try {
                 const updatedTask = { name, description, status };
                 const response = await axios.put(
-                    `${import.meta.env.VITE_APP_BACKEND_PORT}/update/${taskId}`,
+                    `${import.meta.env.VITE_BACKEND_PORT}/update/${taskId}`,
                     updatedTask
                 );
                 setStatusMessage(response.data.message || "Task updated successfully.");

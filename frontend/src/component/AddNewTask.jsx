@@ -13,7 +13,7 @@ function AddNewTask() {
 
     if (name && description && status) {
       try {
-        const response = await axios.post(`${import.meta.env.VITE_APP_BACKEND_PORT}/AddNewTask`, {
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_PORT}/AddNewTask`, {
           name,
           description,
           status,
