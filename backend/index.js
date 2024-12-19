@@ -3,23 +3,23 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from "body-parser";
 import pg from "pg"
+import pkg from 'pg';
 import dotenv from 'dotenv'
 const app = express()
+const { Client } = pkg;
 dotenv.config()
 const port = process.env.PORT_NO;
 
-
+const connectionString = process.env.RENDER_DB;
 
 //Database connection
-const db = new pg.Client({
-    user: process.env.USER,
-    host: process.env.HOST,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
-    port: process.env.DB_PORT_NO,
-})
-db.connect();
-
+const db = new Client({
+    connectionString, // Connection string includes user, host, database, password, and port
+    ssl: {
+      rejectUnauthorized: false, // Required for connecting to databases with SSL, like Render
+    },
+  });
+db.connect(); 
 //midleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
