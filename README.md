@@ -330,6 +330,16 @@ CREATE TABLE users (
 - username: The user's username (must be unique). 👤
 - password: The user's password (should be securely hashed in a real application). 🔒
 
+### Swagger UI 📖
+Interactive API documentation is available using Swagger UI. You can access it by navigating to /api-docs on your backend server. For example:
+
+
+![swagger ui image](https://github.com/user-attachments/assets/872e60dc-d73f-444b-a6b8-5bd7dd12d01b)
+
+```Require local enviroment
+http://localhost:4000/api-docs
+```
+
 
 ### Server ⚙️
 The backend is built with Node.js ⚙️ and Express.js 🌐, using PostgreSQL 🐘 for task management. It handles:
