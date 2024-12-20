@@ -4,11 +4,11 @@
 
 
 <div style="display: flex; align-items: center;">
-  <img style="width: 500px; height: 500px; object-fit: cover;" src="https://github.com/user-attachments/assets/c4d1a837-7147-43ca-9170-6bd5ad726299" alt="login" />
+  <img style="width: 500px; height: 700px; object-fit: cover;" src="https://github.com/user-attachments/assets/c4d1a837-7147-43ca-9170-6bd5ad726299" alt="login" />
   
 </div>
 <div style="display: flex; align-items: center;">
-<img style="width: 500px; height: 500px; object-fit: cover;" src="https://github.com/user-attachments/assets/aba303e4-7b5a-4b16-be78-36f02d65c928" alt="task manager" />
+<img style="width: 500px; height: 700px; object-fit: cover;" src="https://github.com/user-attachments/assets/aba303e4-7b5a-4b16-be78-36f02d65c928" alt="task manager" />
 </div>
 
 
