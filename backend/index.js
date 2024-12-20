@@ -78,7 +78,7 @@ app.post('/login', async (req, res) => {
 
 app.get('/fetchAll', async (req, res) => {
     try {
-        const data = await db.query("SELECT * FROM tasks");
+        const data = await db.query("SELECT * FROM tasks ORDER BY id ASC");
         // console.log(data.rows); 
         res.json({ data: data.rows });
     } catch (err) {
