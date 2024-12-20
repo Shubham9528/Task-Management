@@ -289,9 +289,6 @@ It provides a robust API for the frontend.
         ```
         
 
-  **Server Listening**
-    *   Description: The server listens on the port specified in the `.env` file and provides API access for all the above routes. 👂 The server uses Node.js and Express.js to handle requests and responses. It connects to a PostgreSQL database to store and retrieve data related to users and tasks. Each route handles a specific part of the task management system, such as authentication, user registration, task CRUD operations, and fetching task details.
-
 ## Database 🗄️
 
 The application uses PostgreSQL 🐘 as its database. Two main tables are used: `tasks` and `users`.
