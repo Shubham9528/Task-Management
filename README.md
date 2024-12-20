@@ -2,6 +2,16 @@
 
 **Ve3 Task Manager** is a web application designed to help you manage your tasks efficiently. It offers features like adding, updating, deleting, and fetching tasks, along with user authentication through login and registration functionalities.
 
+
+<div style="display: flex; align-items: center;">
+  <img style="width: 200px; height: 200px; object-fit: cover;" src="https://github.com/user-attachments/assets/c4d1a837-7147-43ca-9170-6bd5ad726299" alt="login" />
+  <img style="width: 200px; height: 200px; object-fit: cover;" src="https://github.com/user-attachments/assets/aba303e4-7b5a-4b16-be78-36f02d65c928" alt="task manager" />
+</div>
+
+
+
+
+
 ## Tech Stack 🛠️
 
 *   Frontend: React.js⚛️
