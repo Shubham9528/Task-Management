@@ -90,6 +90,7 @@ DB_NAME: The name of the PostgreSQL database. 🏷
 
 *   **Frontend:** `http://localhost:3000/` (after running the React development server) 🌐
 *   **Backend:** `http://localhost:4000/` (after running the Node.js server) ⚙️
+
 ## Modules 📦
 
 The application provides various modules for task management functionality:
@@ -127,16 +128,13 @@ It provides a robust API for the frontend.
 2.  **POST /login**
     *   Description: Handles user login. 👤
     *   Request Body:
-
         ```json
         {
           "username": "testuser",
           "password": "password123"
         }
         ```
-
     *   Response (Success):
-
         ```json
         {
           "message": "Login successful",
@@ -144,19 +142,94 @@ It provides a robust API for the frontend.
           "username": "testuser"
         }
         ```
-
     *   Response (Failure):
-
         ```json
         {
           "message": "Invalid credentials" ❌
         }
         ```
 
-... (The rest of the API endpoints follow the same pattern - I've added a few examples below)
+3.  **GET /fetchAll**
+    *   Description: This route fetches all tasks from the database. 📑
+    *   Response:
+        ```json
+        [
+          {
+            "id": 1,
+            "name": "Grocery Shopping",
+            "description": "Buy groceries for the week",
+            "status": "pending"
+          },
+          // ... more tasks
+        ]
+        ```
+
+4.  **POST /register**
+    *   Description: This route is used for user registration. 📝
+    *   Request Body:
+        ```json
+        {
+          "username": "newuser",
+          "password": "newpassword"
+        }
+        ```
+    *   Response (Success):
+        ```json
+        {
+          "message": "Registration successful" ✅
+        }
+        ```
+    *   Response (Failure - Username Exists):
+        ```json
+        {
+          "message": "Username already exists" ⚠️
+        }
+        ```
+
+5.  **GET /fetchById/:id**
+    *   Description: This route fetches a task from the database by its unique ID. 🔎
+    *   Example Request: `/fetchById/1`
+    *   Response (Success):
+        ```json
+        {
+          "id": 1,
+          "name": "Grocery Shopping",
+          "description": "Buy groceries for the week",
+          "status": "pending"
+        }
+        ```
+    *   Response (Failure - Not Found):
+        ```json
+        {
+          "message": "Task not found" ❌
+        }
+        ```
+
+6.  **POST /AddNewTask**
+    *   Description: This route adds a new task to the database. ➕
+    *   Request Body:
+        ```json
+        {
+          "name": "Pay Bills",
+          "description": "Pay electricity and water bills",
+          "status": "pending"
+        }
+        ```
+    *   Response (Success):
+        ```json
+        {
+          "message": "Task added successfully" ✅
+        }
+        ```
+    *   Response (Failure - Missing Fields):
+        ```json
+        {
+          "message": "Name is required" ⚠️
+        }
+        ```
 
 7.  **PUT /update/:id**
-    *   Description: Updates a task by ID. ✏️
+    *   Description: This route updates an existing task in the database by its ID. ✏️
     *   Example Request: `/update/1`
     *   Request Body:
         ```json
@@ -170,10 +243,15 @@ It provides a robust API for the frontend.
         ```json
         {
           "message": "Task updated successfully",
-          "updatedTask": { // ... }
+          "updatedTask": {
+            "id": 1,
+            "name": "Grocery Run",
+            "description": "Buy groceries for the week at the farmer's market",
+            "status": "in progress"
+          }
         }
         ```
-    * Response (Failure - Not Found):
+    *   Response (Failure - Not Found):
         ```json
         {
           "message": "Task not found" ❌
@@ -181,7 +259,7 @@ It provides a robust API for the frontend.
         ```
 
 8.  **DELETE /delete/:id**
-    *   Description: Deletes a task by ID. 🗑️
+    *   Description: This route deletes a task from the database by its ID. 🗑️
     *   Example Request: `/delete/1`
     *   Response (Success):
         ```json
@@ -197,8 +275,11 @@ It provides a robust API for the frontend.
         ```
 
 9.  **Server Listening**
-    *   Description: The server listens on the port specified in the `.env` file and provides API access for all the above routes. 👂
+    *   Description: The server listens on the port specified in the `.env` file and provides API access for all the above routes. 👂 The server uses Node.js and Express.js to handle requests and responses. It connects to a PostgreSQL database to store and retrieve data related to users and tasks. Each route handles a specific part of the task management system, such as authentication, user registration, task CRUD operations, and fetching task details.
 
+## License 📄
+
+This project is licensed under the MIT License - see the LICENSE file for details. ⚖️
 ## License 📄
 
 This project is licensed under the MIT License - see the LICENSE file for details. ⚖️
