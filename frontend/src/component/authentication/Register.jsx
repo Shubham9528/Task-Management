@@ -85,8 +85,8 @@ const RegisterPage = () => {
             />
           </div>
 
-          {errorMessage && <p className="text-red-500 text-sm mb-4">{errorMessage}</p>}
-          {successMessage && <p className="text-green-500 text-sm mb-4">{successMessage}</p>}
+          {errorMessage && <p className="text-red-500 text-lg mb-4">{errorMessage}</p>}
+          {successMessage && <p className="text-red-600 text-lg mb-4">{successMessage}</p>}
 
           <button
             type="submit"

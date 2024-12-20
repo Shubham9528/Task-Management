@@ -49,6 +49,9 @@ const DeleteTask = () => {
                 <button className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
                     <Link to="/delete">Delete Task by ID</Link>
                 </button>
+                <button className="px-4 py-2 bg-cyan-300 text-black  rounded hover:bg-cyan-400">
+                    <Link to="/">Log Out</Link>
+                </button>
             </div>
 
             {/* Heading */}
