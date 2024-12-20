@@ -99,7 +99,7 @@ DB_NAME: The name of the PostgreSQL database. 🏷
 
 *   **Frontend:** `http://localhost:3000/` (after running the React development server) 🌐
 *   **Backend:** `http://localhost:4000/` (after running the Node.js server) ⚙️
-*   Online Link:** https://task-management-backend-navy.vercel.app/
+*   Online Link:** [Go to Appl.app/](https://task-management-rho-wheat.vercel.app/)
 
 ## Modules 📦
 
