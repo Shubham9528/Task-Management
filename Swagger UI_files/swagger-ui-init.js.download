@@ -1,0 +1,278 @@
+
+window.onload = function() {
+  // Build a system
+  var url = window.location.search.match(/url=([^&]+)/);
+  if (url && url.length > 1) {
+    url = decodeURIComponent(url[1]);
+  } else {
+    url = window.location.origin;
+  }
+  var options = {
+  "swaggerDoc": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Task Manager API",
+      "version": "1.0.0",
+      "description": "API documentation for the Task Manager application.",
+      "contact": {
+        "name": "API Support",
+        "email": "support@example.com"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:4000"
+      }
+    ],
+    "paths": {
+      "/login": {
+        "post": {
+          "description": "User login",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Login successful"
+            },
+            "400": {
+              "description": "Username and password are required."
+            },
+            "401": {
+              "description": "Invalid username or password."
+            },
+            "404": {
+              "description": "User not found."
+            }
+          }
+        }
+      },
+      "/fetchAll": {
+        "get": {
+          "description": "Fetch all tasks",
+          "responses": {
+            "200": {
+              "description": "A list of tasks"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      },
+      "/register": {
+        "post": {
+          "description": "User registration",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "User registered successfully"
+            },
+            "400": {
+              "description": "Username and password are required"
+            },
+            "409": {
+              "description": "Username already exists"
+            }
+          }
+        }
+      },
+      "/AddNewTask": {
+        "post": {
+          "description": "Add a new task",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Task added successfully"
+            },
+            "400": {
+              "description": "Missing required fields (name, description, status)"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/update/{id}": {
+        "put": {
+          "description": "Update task details",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "Task ID to update",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Task updated successfully"
+            },
+            "400": {
+              "description": "Missing required fields (name, description, status)"
+            },
+            "404": {
+              "description": "Task not found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/delete/{id}": {
+        "delete": {
+          "description": "Delete a task by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "description": "Task ID to delete",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Task deleted successfully"
+            },
+            "404": {
+              "description": "Task not found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      }
+    },
+    "components": {},
+    "tags": []
+  },
+  "customOptions": {}
+};
+  url = options.swaggerUrl || url
+  var urls = options.swaggerUrls
+  var customOptions = options.customOptions
+  var spec1 = options.swaggerDoc
+  var swaggerOptions = {
+    spec: spec1,
+    url: url,
+    urls: urls,
+    dom_id: '#swagger-ui',
+    deepLinking: true,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout"
+  }
+  for (var attrname in customOptions) {
+    swaggerOptions[attrname] = customOptions[attrname];
+  }
+  var ui = SwaggerUIBundle(swaggerOptions)
+
+  if (customOptions.oauth) {
+    ui.initOAuth(customOptions.oauth)
+  }
+
+  if (customOptions.preauthorizeApiKey) {
+    const key = customOptions.preauthorizeApiKey.authDefinitionKey;
+    const value = customOptions.preauthorizeApiKey.apiKeyValue;
+    if (!!key && !!value) {
+      const pid = setInterval(() => {
+        const authorized = ui.preauthorizeApiKey(key, value);
+        if(!!authorized) clearInterval(pid);
+      }, 500)
+
+    }
+  }
+
+  if (customOptions.authAction) {
+    ui.authActions.authorize(customOptions.authAction)
+  }
+
+  window.ui = ui
+}
