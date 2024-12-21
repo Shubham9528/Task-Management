@@ -76,7 +76,12 @@ const DeleteTask = () => {
 
             {/* Status Message */}
             {statusMessage && (
-                <p className="mt-4 text-lg font-medium text-red-600">{statusMessage}</p>
+                <p
+                    className={`mt-4 text-lg font-medium ${statusMessage === "Task deleted successfully" ? "text-green-600" : "text-red-600"
+                        }`}
+                >
+                    {statusMessage}
+                </p>
             )}
         </div>
 
