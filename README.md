@@ -14,6 +14,7 @@
 ## Tech Stack 🛠️
 
 *   Frontend: Vite+React.js⚛️
+*   Styling: TaiwindCss 🎨
 *   Backend: Node.js ⚙️, Express.js 🌐
 *   Database: PostgreSQL 🐘
 *   Cloud: Database on Render ☁️, Application on Vercel ▲
