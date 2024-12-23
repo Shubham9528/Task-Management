@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password } = req.body;//object desturucturing
     // console.log(username, password);
     
     if (!username || !password) {

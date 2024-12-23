@@ -11,7 +11,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
 
-  if (!username || !password) {
+  if (!username || !password) {//it checks if the username and password has falsy value (e.g., null, undefined, false, 0, NaN, or an empty string)
     setErrorMessage('Please enter both username and password.');
     return;
   }
