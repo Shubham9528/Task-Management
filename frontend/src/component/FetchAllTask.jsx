@@ -16,7 +16,7 @@ const FetchAllTask = () => {
     };
 
     fetchTasks();
-  }, []);
+  }, []);// Empty dependency array ensures the effect runs only once
 
   return (
     <div className="p-8 bg-white shadow-md rounded">

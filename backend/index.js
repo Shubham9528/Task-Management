@@ -36,7 +36,7 @@ app.post('/login', async (req, res) => {
     // console.log(username, password);
     
     if (!username || !password) {
-        return res.status(400).json({ error: "Username and password are required." });
+        return res.status(400).json({ error: "Username and Password are required." });
     }
 
     try {
@@ -88,7 +88,7 @@ app.get('/fetchAll', async (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password } = req.body;//bodyparser middleware 
   
     if (!username || !password) {
       return res.status(400).json({ message: 'Username and password are required.' });

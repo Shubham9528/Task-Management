@@ -9,7 +9,7 @@ const FetchById = () => {
     const handleFetch = async () => {
         if (parseInt(id) > 0) {
             try {
-
+ 
                 const response = await axios.get(`${import.meta.env.VITE_BACKEND_PORT}/fetchById/${id}`);
                 setFetchedData(response.data);
             } catch (error) {
