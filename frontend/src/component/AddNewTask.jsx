@@ -24,7 +24,7 @@ function AddNewTask() {
         setStatus("");
       } catch (error) {
         console.error("Error adding task:", error);
-        setResponseMessage("Failed to add task. Please try again.");
+        setResponseMessage("Failed . Please try again.");
       }
     } else {
       setResponseMessage("Please fill in all fields.");
